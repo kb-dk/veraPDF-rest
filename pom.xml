@@ -110,7 +110,9 @@
         </executions>
         <configuration>
           <mainClass>org.verapdf.rest.app.VeraPdfRestApplication</mainClass>
-          <arguments>server</arguments>
+          <arguments>
+              <argument>server</argument>
+          </arguments>
         </configuration>
       </plugin>
     </plugins>

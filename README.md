@@ -39,7 +39,7 @@ To start up the server:
 
 	java -jar target/verapdf-rest-0.1.0-SNAPSHOT.jar server
 	
-or launch `VeraPdfRestApplication` from within your IDE.
+or launch `VeraPdfRestLauncher` from within your IDE.
 
 Go to [localhost:8080/api/info](http://localhost:8080/api/info) to see if the server is running, you should see something like:
 
