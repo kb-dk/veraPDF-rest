@@ -13,3 +13,7 @@ buildNumber.properties
 .settings
 .classpath
 bin/
+
+# Ignore IDEA IntelliJ artifacts.
+/.idea/
+*.iml

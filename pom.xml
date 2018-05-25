@@ -97,7 +97,22 @@
         </executions>
       </plugin>
 
-
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>${mvn.exec.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>org.verapdf.rest.app.VeraPdfRestApplication</mainClass>
+          <arguments>server</arguments>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 

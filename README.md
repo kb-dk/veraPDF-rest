@@ -15,8 +15,8 @@ The project's a Maven managed Java application, the application is based on [Dro
  * [Jersey](http://jersey.java.net/) for REST services and associated, and
  * [Jackson](http://jersey.java.net/) for JSON and XML serialisation.
 
-A good place to get going is the [Dropwizard getting started guide](http://dropwizard.io/getting-started.html).
-The [Dropwizard core documentation](http://dropwizard.io/manual/core.html) covers the features used in the code base.
+A good place to get going is the [Dropwizard getting started guide](https://www.dropwizard.io/1.3.2/docs/getting-started.html).
+The [Dropwizard core documentation](https://www.dropwizard.io/1.3.2/docs/manual/core.html) covers the features used in the code base.
 
 Building and running
 --------------------
@@ -24,7 +24,7 @@ Building and running
 Currently it's delivered as a single Maven module, veraPDF-rest.
 
 ### Want to try?
-First clone this project, got to the project directory and then build the Maven project:
+First ensure you are using a Java 7 or Java 8 JVM, then clone this project, got to the project directory and then build the Maven project:
 
 	git clone git@github.com:veraPDF/veraPDF-rest.git
 	cd veraPDF-rest
@@ -33,7 +33,13 @@ First clone this project, got to the project directory and then build the Maven 
 
 To start up the server:
 
+    mvn -q clean package exec:java
+    
+ or
+
 	java -jar target/verapdf-rest-0.1.0-SNAPSHOT.jar server
+	
+or launch `VeraPdfRestApplication` from within your IDE.
 
 Go to [localhost:8080/api/info](http://localhost:8080/api/info) to see if the server is running, you should see something like:
 
