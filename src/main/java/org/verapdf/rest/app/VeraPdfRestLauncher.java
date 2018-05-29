@@ -17,14 +17,17 @@
 package org.verapdf.rest.app;
 
 /**
- * This class invokes VeraPdfRestApplication with the right
- * context for an IDE launch.  It is essentially an Eclipse
+ * This class invokes VeraPdfRestApplication with the right context for an IDE launch.  It is essentially an Eclipse
  * launch configuration captured in code.
+ *
  * @author tra
  */
 public class VeraPdfRestLauncher {
 
     public static void main(String[] args) throws Exception {
+        // https://stackoverflow.com/a/25340864/53897
+        System.setProperty("dw.server.applicationConnectors[0].port", "6000");
+        System.setProperty("dw.server.adminConnectors[0].port", "6001");
         VeraPdfRestApplication.main(new String[]{"server"});
     }
 }

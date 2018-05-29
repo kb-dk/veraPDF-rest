@@ -31,13 +31,17 @@ First ensure you are using a Java 7 or Java 8 JVM, then clone this project, got 
 	git checkout integration
 	mvn clean package
 
-To start up the server:
+Then to start up the server:
 
     mvn -q clean package exec:java
     
  or
 
-	java -jar target/verapdf-rest-0.1.0-SNAPSHOT.jar server
+	java -jar target/verapdf-rest.jar server
+	
+or
+
+    docker-compose up --build
 	
 or launch `VeraPdfRestLauncher` from within your IDE.
 

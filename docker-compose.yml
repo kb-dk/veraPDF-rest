@@ -1,0 +1,11 @@
+version: "3" # https://docs.docker.com/compose/compose-file/
+
+services:
+  verapdf:
+    build:
+       context: .
+    expose:
+      - "6000"
+    ports:
+      - 6000:6000
+
