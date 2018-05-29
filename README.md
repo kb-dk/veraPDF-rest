@@ -3,6 +3,8 @@ veraPDF-rest
 
 *Dropwizard based veraPDF REST Services*
 
+[![wercker status](https://app.wercker.com/status/e0c52c6465141f20712e25628360b006/s/ "wercker status")](https://app.wercker.com/project/byKey/e0c52c6465141f20712e25628360b006)
+
 Introduction
 ------------
 This represents a development prototype, there's little in the way of exception handling and unit testing.
