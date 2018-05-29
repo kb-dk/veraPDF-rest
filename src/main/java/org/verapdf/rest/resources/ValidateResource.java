@@ -169,7 +169,14 @@ public class ValidateResource {
     private static byte[] getHtmlBytes(byte[] xmlBytes, BatchSummary summary) throws IOException, TransformerException {
         try (InputStream xmlBis = new ByteArrayInputStream(xmlBytes);
              ByteArrayOutputStream htmlBos = new ByteArrayOutputStream()) {
-            HTMLReport.writeHTMLReport(xmlBis, htmlBos, summary, WIKI_URL_BASE, false);
+            // FIXME:  Upgrading from 0.15 to 1.13.6 caused the following line to fail.
+
+            // HTMLReport.writeHTMLReport(xmlBis, htmlBos, summary, WIKI_URL_BASE, false);
+
+            // tra@kb.dk have made it compile by just hardcoding a dummy value as we do not need this functionality.
+            // A proper fix is needed.
+
+            HTMLReport.writeHTMLReport(xmlBis, htmlBos, false, WIKI_URL_BASE, false);
             return htmlBos.toByteArray();
         }
 

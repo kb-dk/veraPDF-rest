@@ -5,7 +5,7 @@ services:
     build:
        context: .
     expose:
-      - "6000"
+      - "8090"
     ports:
-      - 6000:6000
+      - 8090:8090
 
