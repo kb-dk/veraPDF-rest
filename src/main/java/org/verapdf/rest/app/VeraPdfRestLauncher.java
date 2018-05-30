@@ -26,8 +26,8 @@ public class VeraPdfRestLauncher {
 
     public static void main(String[] args) throws Exception {
         // https://stackoverflow.com/a/25340864/53897
-        System.setProperty("dw.server.applicationConnectors[0].port", "6000");
-        System.setProperty("dw.server.adminConnectors[0].port", "6001");
+        System.setProperty("dw.server.applicationConnectors[0].port", "8080");
+        System.setProperty("dw.server.adminConnectors[0].port", "8081");
         VeraPdfRestApplication.main(new String[]{"server"});
     }
 }

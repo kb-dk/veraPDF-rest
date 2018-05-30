@@ -33,19 +33,12 @@ First ensure you are using a Java 7 or Java 8 JVM, then clone this project, got 
 	git checkout integration
 	mvn clean package
 
-Then to start up the server:
+Then to start up the server, choose one of these:
 
-    mvn -q clean package exec:java
-    
- or
-
-	java -jar target/verapdf-rest.jar server
-	
-or
-
-    docker-compose up --build
-	
-or launch `VeraPdfRestLauncher` from within your IDE.
+* `mvn -q clean package exec:java`
+* `java -jar target/verapdf-rest.jar server`
+* `docker-compose up --build`  
+* Launch `VeraPdfRestLauncher` from within your IDE.
 
 Go to [localhost:8080/api/info](http://localhost:8080/api/info) to see if the server is running, you should see something like:
 
