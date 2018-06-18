@@ -86,6 +86,8 @@
               <goal>shade</goal>
             </goals>
             <configuration>
+              <shadedArtifactAttached>true</shadedArtifactAttached>
+              <shadedClassifierName>shaded</shadedClassifierName> <!-- Any name that makes sense -->
               <transformers>
                 <transformer
                   implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
@@ -176,7 +178,7 @@
     </dependency>
   </dependencies>
 
-
+<!-- artifacts not correctly configured, disabling to quiet intellij
   <reporting>
     <plugins>
       <plugin>
@@ -212,5 +214,5 @@
       </plugin>
     </plugins>
   </reporting>
-
+-->
 </project>
