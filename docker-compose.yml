@@ -1,11 +1,12 @@
 version: "3" # https://docs.docker.com/compose/compose-file/
 
+# We use port 8080 here to stay compatible with the documentation.
 services:
   verapdf:
     build:
        context: .
     expose:
-      - "8090"
+      - "8080"
     ports:
-      - 8090:8090
+      - 8080:8080
 

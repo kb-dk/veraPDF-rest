@@ -5,6 +5,9 @@ veraPDF-rest
 
 [![wercker status](https://app.wercker.com/status/e0c52c6465141f20712e25628360b006/s/ "wercker status")](https://app.wercker.com/project/byKey/e0c52c6465141f20712e25628360b006)
 
+IMPORTANT:  This is a fork of the official veraPDF-rest repository in order to
+
+
 Introduction
 ------------
 This represents a development prototype, there's little in the way of exception handling and unit testing.
