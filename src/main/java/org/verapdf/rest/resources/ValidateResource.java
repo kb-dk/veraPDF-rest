@@ -48,6 +48,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URL;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -84,8 +85,22 @@ public class ValidateResource {
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public static ValidationResult validate(@PathParam("profileid") String profileId,
-                                            @FormDataParam("sha1Hex") String sha1Hex, @FormDataParam("file") InputStream uploadedInputStream,
+                                            @FormDataParam("sha1Hex") String sha1Hex,
+                                            @FormDataParam("url") String url,
+                                            @FormDataParam("file") InputStream uploadedInputStream,
                                             @FormDataParam("file") final FormDataContentDisposition contentDispositionHeader) throws VeraPDFException {
+        // either upload a file or provide an url.
+        if (url != null) {
+            if (uploadedInputStream != null) {
+                throw new VeraPDFException("url != null and file != null");
+            } else {
+                try {
+                    uploadedInputStream = new URL(url).openConnection().getInputStream();
+                } catch (IOException e) {
+                    throw new VeraPDFException("could not get inputstream from url=" + url, e);
+                }
+            }
+        }
         PDFAFlavour flavour = PDFAFlavour.byFlavourId(profileId);
         MessageDigest sha1 = getDigest();
         DigestInputStream dis = new DigestInputStream(uploadedInputStream, sha1);
@@ -124,16 +139,29 @@ public class ValidateResource {
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces({MediaType.TEXT_HTML})
     public static InputStream validateHtml(@PathParam("profileid") String profileId,
-                                           @FormDataParam("sha1Hex") String sha1Hex, @FormDataParam("file") InputStream uploadedInputStream,
+                                           @FormDataParam("sha1Hex") String sha1Hex,
+                                           @FormDataParam("url") String url,
+                                           @FormDataParam("file") InputStream uploadedInputStream,
                                            @FormDataParam("file") final FormDataContentDisposition contentDispositionHeader) throws VeraPDFException {
         long start = new Date().getTime();
+        if (url != null) {
+            if (uploadedInputStream != null) {
+                throw new VeraPDFException("url != null and file != null");
+            } else {
+                try {
+                    uploadedInputStream = new URL(url).openConnection().getInputStream();
+                } catch (IOException e) {
+                    throw new VeraPDFException("could not get inputstream from url=" + url, e);
+                }
+            }
+        }
         File file;
         try {
             file = File.createTempFile("cache", "");
         } catch (IOException excep) {
             throw new VeraPDFException("IOException creating a temp file", excep); //$NON-NLS-1$
         }
-        try (OutputStream fos = new FileOutputStream(file);) {
+        try (OutputStream fos = new FileOutputStream(file)) {
             IOUtils.copy(uploadedInputStream, fos);
             uploadedInputStream.close();
         } catch (IOException excep) {
