@@ -41,7 +41,7 @@ Then to start up the server, choose one of these:
 * `mvn -q clean package exec:java`
 * `java -jar target/verapdf-rest.jar server`
 * `docker-compose up --build`  
-* Launch `VeraPdfRestLauncher` from within your IDE.
+* Launch `org.verapdf.rest.app.VeraPdfRestLauncher` from within your IDE.
 
 Go to [localhost:8080/api/info](http://localhost:8080/api/info) to see if the server is running, you should see something like:
 
